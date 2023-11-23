@@ -1,0 +1,2 @@
+#!/bin/bash
+cd $(find . -type d -print | fzf)

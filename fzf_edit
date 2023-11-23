@@ -1,2 +1,2 @@
 #!/bin/bash
-nvim $(fzf)
+nvim $(fzf --preview 'bat --color=always --style=header,grid {}')
