@@ -13,16 +13,33 @@ with open(f"{dir_path}/api_key.txt") as f:
 distro = os.getenv("HOWTO_DISTRO_IDENTIFIER", "")
 arg = ' '.join(sys.argv[1:])
 
-r = client.chat.completions.create(model="gpt-3.5-turbo",
-messages=[
-      {"role": "system", "content": "You are ChatGPT, a large language model trained by OpenAI. Answer as concisely as possible."},
-      {"role": "user", "content": f"Answer with only the actual command without any intro or explanation. What is the {distro} linux command line command to {arg}. Give me three possible answers."}
-  ])
+r = client.chat.completions.create(
+    model="gpt-3.5-turbo",
+    messages = [
+        {
+            "role": "system",
+            "content": (
+                "You are CommandGuru, an expert Linux administrator. "
+                "When the conversation ends you must reply with **exactly three** distinct "
+                "command‑line commands that solve the user’s request for the specified Linux distribution. "
+                "Output rules:\n"
+                "• Plain text only – no code‑blocks, back‑ticks, bullets, explanations, or greetings.\n"
+                "• One command per line.\n"
+                "• If a command needs sudo, write it with sudo.\n"
+                "• Prefer the distribution’s native tooling; if there are equally valid variants, "
+                "choose the three most common.\n"
+                "• Do not add anything before or after the commands."
+            )
+        },
+        {
+            "role": "user",
+            "content": (
+                f"Give me exactly three ways to accomplish the following on {distro} linux: {arg}."
+            )
+        }
+    ]
+)
 
-text = r.choices[0].message.content
-if text.startswith('```') and text.endswith('```'):
-  text = text[3:-3]
-if text.startswith('`') and text.endswith('`'):
-  text = text[1:-1]
+text = r.choices[0].message.content.replace("```", "").replace("`", "").strip()
 
 print(text)
