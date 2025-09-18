@@ -1,26 +1,42 @@
 #!/usr/bin/env python3
-import openai
+
+from openai import OpenAI
+
 import sys
 import os
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
 with open(f"{dir_path}/api_key.txt") as f:
-  openai.api_key = f.read().strip()
+    client = OpenAI(api_key=f.read().strip())
 
 
-arg = ' '.join(sys.argv[1:])
+arg = " ".join(sys.argv[1:])
 
-r = openai.ChatCompletion.create(
-  model="gpt-3.5-turbo",
-  messages=[
-        {"role": "system", "content": "You are ChatGPT, a large language model trained by OpenAI. Answer as concisely as possible."},
-        {"role": "user", "content": f"Answer with only the actual code without any intro or explanation. What is most common template for {arg} file"}
-    ]
+r = client.chat.completions.create(
+    model="gpt-4.1-mini",
+    messages=[
+        {
+            "role": "system",
+            "content": (
+                "You are MasterProgrammer, an expert developer that have expertise in all languages know to man. "
+                "When the conversation ends you must reply with code snippets that is perfest, expandable template for starting a project in given technology. "
+                "You must reply with **exactly one** code snippet that is a template for the given file type. "
+                "You may add comments to the code to explain what it does"
+                "Output rules:\n"
+                "• Plain text only – no code‑blocks, back‑ticks, bullets, explanations, or greetings.\n"
+                "• Do not add anything before or after the commands."
+            ),
+        },
+        {
+            "role": "user",
+            "content": f"Answer with only the actual code without any intro or explanation. What is usefule starting template for {arg} file",
+        },
+    ],
 )
 
-text = r["choices"][0]["message"]["content"]
-if text.startswith('`') and text.endswith('`'):
-  text = text[1:-1]
+text = r.choices[0].message.content
+if text.startswith("`") and text.endswith("`"):
+    text = text[1:-1]
 
 print(text)

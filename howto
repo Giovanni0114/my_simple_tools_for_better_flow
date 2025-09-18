@@ -10,11 +10,11 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 with open(f"{dir_path}/api_key.txt") as f:
     client = OpenAI(api_key=f.read().strip())
 
-distro = os.getenv("HOWTO_DISTRO_IDENTIFIER", "")
+distro = os.getenv("HOWTO_DISTRO_IDENTIFIER", "ubuntu")
 arg = ' '.join(sys.argv[1:])
 
 r = client.chat.completions.create(
-    model="gpt-3.5-turbo",
+    model="gpt-4.1-mini-2025-04-14",
     messages = [
         {
             "role": "system",
