@@ -199,7 +199,7 @@ if __name__ == "__main__":
                 stalled[repo] += 1
                 if percent >= 100:
                     print_green(f"[{repo.name}] reached goal size of {size_to_human_readable_size(goal_size)}")
-                if stalled[repo] >= argparse.stalled_threshold:
+                if stalled[repo] >= args.stalled_threshold:
                     print_red(f"[{repo.name}] stalled for {stalled[repo]} cycles on {size_to_human_readable_size(size)}")
                 else:
                     print_yellow(f"[{repo.name}] stalled for {stalled[repo]} cycles on {size_to_human_readable_size(size)}")
