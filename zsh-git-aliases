@@ -1,0 +1,5 @@
+#!/bin/bash
+
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+
+cat $SCRIPT_DIR/zsh-git-aliases.txt | fzf --preview-window=right:60%:wrap --height 40% --layout=reverse --border --ansi --prompt="Select a Git alias: " 

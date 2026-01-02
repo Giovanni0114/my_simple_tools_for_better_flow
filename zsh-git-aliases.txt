@@ -1,0 +1,103 @@
+g                   git
+ga                  git add
+gaa                 git add --all
+gapa                git add --patch
+gc                  git commit -v
+gc!                 git commit -v --amend
+gca                 git commit -v -a
+gca!                git commit -v -a --amend
+gcan!               git commit -v -a --no-edit --amend
+gcans!              git commit -v -a -s --no-edit --amend
+gcam                git commit -a -m
+gcsm                git commit -s -m
+gcmsg               git commit -m
+gcs                 git commit -S
+
+gco                 git checkout
+gcd                 git checkout develop
+gcm                 git checkout master
+gcb                 git checkout -b
+gbnm                git branch --no-merged
+gbr                 git branch --remote
+ggsup               git branch --set-upstream-to=origin/$(current_branch)
+
+glg                 git log --stat --max-count = 10
+glgg                git log --graph --max-count = 10
+glgga               git log --graph --decorate --all
+glo                 git log --oneline --decorate --color
+glog                git log --oneline --decorate --color --graph
+glp                 git log --pretty=$1
+
+gcl                 git clone --recursive
+gp                  git push
+ggp                 git push origin $(current_branch)
+ggpush              git push origin $(current_branch)
+gpsup               git push --set-upstream origin $(current_branch)
+gpoat               git push origin --all && git push origin --tags
+gf                  git fetch
+gfa                 git fetch --all --prune
+gfo                 git fetch origin
+ggl                 git pull origin $(current_branch)
+ggpull              git pull origin $(current_branch)
+ggpur               git pull --rebase origin $(current_branch)
+glum                git pull upstream master
+gup                 git pull --rebase
+ggpnp               git pull origin $(current_branch) && git push origin $(current_branch)
+gm                  git merge
+gmom                git merge origin/master
+gmt                 git mergetool --no-prompt
+gmtvim              git mergetool --no-prompt --tool=vimdiff
+gmum                git merge upstream/master
+gma                 git merge --abort
+
+gr                  git remote
+grv                 git remote -v
+grmv                git remote rename
+grrm                git remote remove
+grset               git remote set-url
+grup                git remote update
+
+gst                 git status
+gss                 git status -s
+gsta                git stash save
+gstaa               git stash apply
+gstd                git stash drop
+gstl                git stash list
+grh                 git reset HEAD
+grhh                git reset HEAD --hard
+gclean              git clean -fd
+gpristine           git reset --hard && git clean -dfx
+gwip                git add -A; git ls-files --deleted -z | xargs -r0 git rm; git commit -m "--wip--"
+gunwip              git log -n 1 | grep -q -c "--wip--" && git reset HEAD~1
+
+grbi                git rebase -i
+grba                git rebase --abort
+grbc                git rebase --continue
+grbs                git rebase --skip
+gcp                 git cherry-pick
+gcpa                git cherry-pick --abort
+gcpc                git cherry-pick --continue
+
+gbl                 git blame -b -w
+gbs                 git bisect
+gbsb                git bisect bad
+gbsg                git bisect good
+gbsr                git bisect reset
+gbss                git bisect start
+gd                  git diff
+gdca                git diff --cached
+gdt                 git diff-tree --no-commit-id --name-only -r
+gdw                 git diff --word-diff
+gwch                git whatchanged -p --abbrev-commit --pretty = medium
+
+gcf                 git config --list
+gcount              git shortlog -sn
+gdct                git describe --tags `git rev-list --tags --max-count=1`
+gignore             git update-index --assume-unchanged
+gunignore           git update-index --no-assume-unchanged
+gignored            git ls-files -v | grep "^[[:lower:]]"
+gts                 git tag -s
+gvt                 git verify-tag
+gtv                 git tag | sort -V
+gsps                git show --pretty = short --show-signature
+grt                 cd $(git rev-parse --show-toplevel || echo ".")
