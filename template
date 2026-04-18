@@ -14,7 +14,7 @@ with open(f"{dir_path}/api_key.txt") as f:
 arg = " ".join(sys.argv[1:])
 
 r = client.chat.completions.create(
-    model="gpt-4.1-mini",
+    model="gpt-5.4-nano",
     messages=[
         {
             "role": "system",

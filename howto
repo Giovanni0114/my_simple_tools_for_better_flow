@@ -14,7 +14,8 @@ distro = os.getenv("HOWTO_DISTRO_IDENTIFIER", "ubuntu")
 arg = ' '.join(sys.argv[1:])
 
 r = client.chat.completions.create(
-    model="gpt-4.1-mini-2025-04-14",
+    model="gpt-5.4-nano",
+    reasoning_effort="none",
     messages = [
         {
             "role": "system",
