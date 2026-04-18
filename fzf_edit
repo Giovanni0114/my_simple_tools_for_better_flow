@@ -1,2 +1,4 @@
 #!/bin/bash
-nvim $(fzf --preview 'bat --color=always --style=header,grid {}')
+filename=$(fzf --preview 'bat --color=always --style=header,grid {}')
+if [[ -z "$filename" ]]; then exit; fi;
+nvim $filename

@@ -1,0 +1,27 @@
+#!/usr/bin/python3
+
+from openai import OpenAI
+
+import sys
+import os
+
+dir_path = os.path.dirname(os.path.realpath(__file__))
+
+with open(f"{dir_path}/api_key.txt") as f:
+    client = OpenAI(api_key=f.read().strip())
+
+if len(sys.argv) < 2:
+    print("To few arguments! Usage: snippet <language> <desctiption of functionality>")
+    exit(0)
+
+func = ' '.join(sys.argv[2:])
+lang = sys.argv[1:]
+
+r = client.chat.completions.create(model="gpt-3.5-turbo",
+messages=[
+      {"role": "user", "content": f"Answer with only the actual command without any intro or explanation. What is the snippet of code in {lang} language that {func}.  Add short explanation of this code."}
+])
+
+for choice in r.choices:
+    print(choice.message.content)
+
