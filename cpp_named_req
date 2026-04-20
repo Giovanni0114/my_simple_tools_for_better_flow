@@ -1,0 +1,3 @@
+#!/bin/bash
+
+~/repo/simple-rofi-picker/picker.py  ~/mtools/cpp_named_req.json 

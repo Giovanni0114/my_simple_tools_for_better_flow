@@ -1,0 +1,327 @@
+{
+    "name": "C++ Named Requirements",
+    "base_command": "cppman %1",
+    "case_sensitive": false,
+    "options": [
+        {
+            "label": "DefaultConstructible  |  specifies that an object of the type can be default constructed",
+            "value": "DefaultConstructible"
+        },
+        {
+            "label": "MoveConstructible  |  specifies that an object of the type can be constructed from rvalue",
+            "value": "MoveConstructible"
+        },
+        {
+            "label": "CopyConstructible  |  specifies that an object of the type can be constructed from lvalue",
+            "value": "CopyConstructible"
+        },
+        {
+            "label": "MoveAssignable  |  specifies that an object of the type can be assigned from rvalue",
+            "value": "MoveAssignable"
+        },
+        {
+            "label": "CopyAssignable  |  specifies that an object of the type can be assigned from lvalue",
+            "value": "CopyAssignable"
+        },
+        {
+            "label": "Destructible  |  specifies that an object of the type can be destroyed",
+            "value": "Destructible"
+        },
+        {
+            "label": "ScalarType  |  object types that are not array types or class types",
+            "value": "ScalarType"
+        },
+        {
+            "label": "PODType  |  POD (Plain Old Data) types, compatible with C struct",
+            "value": "PODType"
+        },
+        {
+            "label": "TriviallyCopyable  |  objects of these types can maintain their values after copying their underlying bytes",
+            "value": "TriviallyCopyable"
+        },
+        {
+            "label": "TrivialType  |  objects of these types can be trivially constructed and copied",
+            "value": "TrivialType"
+        },
+        {
+            "label": "StandardLayoutType  |  these types are useful for communicating with code written in other programming languages",
+            "value": "StandardLayoutType"
+        },
+        {
+            "label": "ImplicitLifetimeType  |  objects of these types can be implicitly created, and their lifetimes can be implicitly started",
+            "value": "ImplicitLifetimeType"
+        },
+        {
+            "label": "BooleanTestable  |  boolean operations (operator&&, operator||, and operator!) have usual semantics",
+            "value": "BooleanTestable"
+        },
+        {
+            "label": "EqualityComparable  |  operator== is an equivalence relation",
+            "value": "EqualityComparable"
+        },
+        {
+            "label": "LessThanComparable  |  operator< is a strict weak ordering relation",
+            "value": "LessThanComparable"
+        },
+        {
+            "label": "Swappable  |  can be swapped with an unqualified non-member function call swap()",
+            "value": "Swappable"
+        },
+        {
+            "label": "ValueSwappable  |  a LegacyIterator that dereferences to a Swappable type",
+            "value": "ValueSwappable"
+        },
+        {
+            "label": "NullablePointer  |  a pointer-like type supporting a null value",
+            "value": "NullablePointer"
+        },
+        {
+            "label": "Hash  |  a FunctionObject that for inputs with different values has a low probability of giving the same output",
+            "value": "Hash"
+        },
+        {
+            "label": "Allocator  |  a class type that contains allocation information",
+            "value": "Allocator"
+        },
+        {
+            "label": "FunctionObject  |  an object that can be called with the function call syntax",
+            "value": "FunctionObject"
+        },
+        {
+            "label": "Callable  |  a type for which the invoke operation is defined",
+            "value": "Callable"
+        },
+        {
+            "label": "Predicate  |  a FunctionObject that returns a value convertible to bool for one argument without modifying it",
+            "value": "Predicate"
+        },
+        {
+            "label": "BinaryPredicate  |  a FunctionObject that returns a value convertible to bool for two arguments without modifying them",
+            "value": "BinaryPredicate"
+        },
+        {
+            "label": "Compare  |  a BinaryPredicate that establishes an ordering relation",
+            "value": "Compare"
+        },
+        {
+            "label": "Container  |  data structure that allows element access using iterators",
+            "value": "Container"
+        },
+        {
+            "label": "ReversibleContainer  |  container using bidirectional iterators",
+            "value": "ReversibleContainer"
+        },
+        {
+            "label": "AllocatorAwareContainer  |  container using an allocator",
+            "value": "AllocatorAwareContainer"
+        },
+        {
+            "label": "SequenceContainer  |  container with elements stored linearly",
+            "value": "SequenceContainer"
+        },
+        {
+            "label": "ContiguousContainer  |  container with elements stored at adjacent memory addresses",
+            "value": "ContiguousContainer"
+        },
+        {
+            "label": "AssociativeContainer  |  container that stores elements by associating them to keys",
+            "value": "AssociativeContainer"
+        },
+        {
+            "label": "UnorderedAssociativeContainer  |  container that stores elements stored in buckets by associating them to keys",
+            "value": "UnorderedAssociativeContainer"
+        },
+        {
+            "label": "DefaultInsertable  |  element can be default-constructed in uninitialized storage",
+            "value": "DefaultInsertable"
+        },
+        {
+            "label": "CopyInsertable  |  element can be copy-constructed in uninitialized storage",
+            "value": "CopyInsertable"
+        },
+        {
+            "label": "MoveInsertable  |  element can be move-constructed in uninitialized storage",
+            "value": "MoveInsertable"
+        },
+        {
+            "label": "EmplaceConstructible  |  element can be constructed in uninitialized storage",
+            "value": "EmplaceConstructible"
+        },
+        {
+            "label": "Erasable  |  element can be destroyed using an allocator",
+            "value": "Erasable"
+        },
+        {
+            "label": "LegacyIterator  |  general concept to access data within some data structure",
+            "value": "LegacyIterator"
+        },
+        {
+            "label": "LegacyInputIterator  |  iterator that can be used to read data",
+            "value": "LegacyInputIterator"
+        },
+        {
+            "label": "LegacyOutputIterator  |  iterator that can be used to write data",
+            "value": "LegacyOutputIterator"
+        },
+        {
+            "label": "LegacyForwardIterator  |  iterator that can be used to read data multiple times",
+            "value": "LegacyForwardIterator"
+        },
+        {
+            "label": "LegacyBidirectionalIterator  |  iterator that can be both incremented and decremented",
+            "value": "LegacyBidirectionalIterator"
+        },
+        {
+            "label": "LegacyRandomAccessIterator  |  iterator that can be advanced in constant time",
+            "value": "LegacyRandomAccessIterator"
+        },
+        {
+            "label": "LegacyContiguousIterator  |  iterator to contiguously-allocated elements",
+            "value": "LegacyContiguousIterator"
+        },
+        {
+            "label": "ConstexprIterator  |  iterator that can be used during constant expression evaluation",
+            "value": "ConstexprIterator"
+        },
+        {
+            "label": "UnformattedInputFunction  |  a stream input function that does not skip leading whitespace and counts the processed characters",
+            "value": "UnformattedInputFunction"
+        },
+        {
+            "label": "FormattedInputFunction  |  a stream input function that skips leading whitespace",
+            "value": "FormattedInputFunction"
+        },
+        {
+            "label": "UnformattedOutputFunction  |  a basic stream output function",
+            "value": "UnformattedOutputFunction"
+        },
+        {
+            "label": "FormattedOutputFunction  |  a stream output function that sets failbit on errors and returns a reference to the stream",
+            "value": "FormattedOutputFunction"
+        },
+        {
+            "label": "BasicFormatter  |  abstracts formatting operations for a given formatting argument type and character type",
+            "value": "BasicFormatter"
+        },
+        {
+            "label": "Formatter  |  defines functions used by the formatting library",
+            "value": "Formatter"
+        },
+        {
+            "label": "SeedSequence  |  consumes a sequence of integers and produces a sequence of 32-bit unsigned values",
+            "value": "SeedSequence"
+        },
+        {
+            "label": "UniformRandomBitGenerator  |  returns uniformly distributed random unsigned integers",
+            "value": "UniformRandomBitGenerator"
+        },
+        {
+            "label": "RandomNumberEngine  |  a deterministic UniformRandomBitGenerator, defined by the seed",
+            "value": "RandomNumberEngine"
+        },
+        {
+            "label": "RandomNumberEngineAdaptor  |  a RandomNumberEngine that transforms the output of another RandomNumberEngine",
+            "value": "RandomNumberEngineAdaptor"
+        },
+        {
+            "label": "RandomNumberDistribution  |  returns random numbers distributed according to a given mathematical probability density function",
+            "value": "RandomNumberDistribution"
+        },
+        {
+            "label": "BasicLockable  |  provides exclusive ownership semantics for execution agents (i.e. threads)",
+            "value": "BasicLockable"
+        },
+        {
+            "label": "Lockable  |  a BasicLockable that supports attempted lock acquisition",
+            "value": "Lockable"
+        },
+        {
+            "label": "TimedLockable  |  a Lockable that supports timed lock acquisition",
+            "value": "TimedLockable"
+        },
+        {
+            "label": "SharedLockable  |  provides shared ownership semantics for execution agents (i.e. threads)",
+            "value": "SharedLockable"
+        },
+        {
+            "label": "SharedTimedLockable  |  a SharedLockable that supports timed lock acquisition",
+            "value": "SharedTimedLockable"
+        },
+        {
+            "label": "Mutex  |  a Lockable that protects against data races and sequentially consistent synchronization",
+            "value": "Mutex"
+        },
+        {
+            "label": "TimedMutex  |  a TimedLockable that protects against data races and sequentially consistent synchronization",
+            "value": "TimedMutex"
+        },
+        {
+            "label": "SharedMutex  |  a Mutex that supports shared ownership semantics",
+            "value": "SharedMutex"
+        },
+        {
+            "label": "SharedTimedMutex  |  a TimedMutex that supports shared ownership semantics",
+            "value": "SharedTimedMutex"
+        },
+        {
+            "label": "RangeAdaptorObject  |  a FunctionObject that creates a range adaptor from a viewable_range and additional arguments",
+            "value": "RangeAdaptorObject"
+        },
+        {
+            "label": "RangeAdaptorClosureObject  |  a FunctionObject that supports the pipe operator",
+            "value": "RangeAdaptorClosureObject"
+        },
+        {
+            "label": "LayoutMapping  |  controls the mapping of multidimensional index in mdspan",
+            "value": "LayoutMapping"
+        },
+        {
+            "label": "LayoutMappingPolicy  |  a policy that holds LayoutMapping requirements",
+            "value": "LayoutMappingPolicy"
+        },
+        {
+            "label": "AccessorPolicy  |  a policy that controls access to data handle in mdspan",
+            "value": "AccessorPolicy"
+        },
+        {
+            "label": "UnaryTypeTrait  |  describes a property of a type",
+            "value": "UnaryTypeTrait"
+        },
+        {
+            "label": "BinaryTypeTrait  |  describes a relationship between two types",
+            "value": "BinaryTypeTrait"
+        },
+        {
+            "label": "TransformationTrait  |  modifies a property of a type",
+            "value": "TransformationTrait"
+        },
+        {
+            "label": "Clock  |  aggregates a duration, a time point, and a function to get the current time point",
+            "value": "Clock"
+        },
+        {
+            "label": "TrivialClock  |  a Clock that does not throw exceptions",
+            "value": "TrivialClock"
+        },
+        {
+            "label": "CharTraits  |  defines types and functions for a character type",
+            "value": "CharTraits"
+        },
+        {
+            "label": "BitmaskType  |  bitset, integer, or enumeration",
+            "value": "BitmaskType"
+        },
+        {
+            "label": "NumericType  |  a type for which initialization is effectively equal to assignment",
+            "value": "NumericType"
+        },
+        {
+            "label": "RegexTraits  |  defines types and functions used by the regular expressions library",
+            "value": "RegexTraits"
+        },
+        {
+            "label": "LiteralType  |  a type with constexpr constructor",
+            "value": "LiteralType"
+        }
+    ]
+}
