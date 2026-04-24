@@ -1,0 +1,54 @@
+#!/usr/bin/python3
+
+from openai import OpenAI
+
+import os
+from pathlib import Path
+
+def read_file(path: Path) -> str:
+    with open(path) as f:
+        return f.read()
+
+
+dir_path = os.path.dirname(os.path.realpath(__file__))
+
+with open(f"{dir_path}/api_key.txt") as f:
+    client = OpenAI(api_key=f.read().strip())
+
+
+# first argument is the question, second argument is the system prompt (optional)
+# if there is -f flag, then the question is read from a file instead of being passed as an argument
+
+DEFAULT_SYSTEM = "You are a helpful assistant that answers questions in a concise manner. If you don't know the answer, say you don't know."
+
+if len(os.sys.argv) < 2:
+    print("Usage: ask <question> [system prompt]")
+    print("       ask -f <question_file> [system prompt]")
+    exit(1)
+
+if os.sys.argv[1] == "-f":
+    if len(os.sys.argv) < 3:
+        print("Usage: ask -f <question_file> [system prompt]")
+        exit(1)
+    question = read_file(Path(os.sys.argv[2]))
+    system_prompt = os.sys.argv[3] if len(os.sys.argv) > 3 else DEFAULT_SYSTEM
+
+
+r = client.chat.completions.create(
+    model="gpt-5.4",
+    reasoning_effort="none",
+    messages = [
+        {
+            "role": "system",
+            "content": DEFAULT_SYSTEM
+        },
+        {
+            "role": "user",
+            "content": question
+        }
+    ]
+)
+
+text = r.choices[0].message.content.replace("```", "").replace("`", "").strip()
+
+print(text)
